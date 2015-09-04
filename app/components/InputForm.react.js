@@ -38,9 +38,9 @@ var InputForm = React.createClass({
 
             <select className="selectBox" name="optionsList" ref="selectedOption">
                 <option value="disabled selected">Type of information to show</option>
-                <option value="Symbol">Company Symbol</option>
-                <option value="LastPrice">Last Price</option>
-                <option value="Change">Change of the Price</option>
+                <option value="Company Symbol">Company Symbol</option>
+                <option value="Last Price">Last Price</option>
+                <option value="Change of the Price">Change of the Price</option>
             </select>
             <input className="searchInput" type="text" placeholder="Enter a company name, ex: Netflix" ref="symbol" />
             <FlatButton type="submit" label="SEARCH" />

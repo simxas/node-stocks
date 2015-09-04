@@ -18,21 +18,14 @@ var Company = React.createClass({
         };
     },
     render: function() {
-        if(this.props.name != undefined) {
-            return (
-                <Card>
-                    <div className="company">
-                        <p>Company name: <span className="infoLabel">{this.props.name}</span></p>
-                        <p>{this.props.infoName}: <span className="infoLabel">{this.props.info}</span></p>
-                    </div>
-                </Card>
-            );
-        }else{
-            return (
-                <div style={{display: 'none'}}></div>
-            );
-        }
-
+        return (
+            <Card>
+                <div className="company">
+                    <p>Company name: <span className="infoLabel">{this.props.name}</span></p>
+                    <p>{this.props.infoName}: <span className="infoLabel">{this.props.info}</span></p>
+                </div>
+            </Card>
+        );
     }
 });
 module.exports = Company;

@@ -28,8 +28,9 @@ var ContentComponent = React.createClass({
                 for (var key in data) {
                     arrayOfSymbol.push(data[key].Symbol);
                     $.getJSON('Api/v2/Quote/json', {symbol: data[key].Symbol}, function (quote) {
+                        quote.selectedOption = selectedOption;
                         arrayOfData.push(quote);
-                        arrayOfData.unshift(selectedOption);
+                        // arrayOfData.unshift(selectedOption);
                         // console.log(arrayOfData);
                         that.setState({data: arrayOfData});
                     });
@@ -53,6 +54,7 @@ var ContentComponent = React.createClass({
         };
     },
     render: function() {
+        // console.log(this.state.data);
         return (
             <Card>
                 <CardHeader

@@ -22,38 +22,27 @@ var CompaniesList = React.createClass({
     render: function() {
         var selected = '';
         var companiesNodes = this.props.data.map(function (company) {
-            switch(company) {
-                case 'Symbol':
-                selected = company;
-                break;
-                case 'LastPrice':
-                selected = company;
-                break;
-                case 'Change':
-                selected = company;
-                break;
-            }
-            switch(selected) {
-                case 'Symbol':
+            console.log(company);
+            switch(company.selectedOption) {
+                case 'Company Symbol':
                 return (
-                    <Company name={company.Name} info={company.Symbol} infoName={'Symbol'}>
+                    <Company name={company.Name} info={company.Symbol} infoName={company.selectedOption}>
                     </Company>
                 );
                 break;
-                case 'LastPrice':
+                case 'Last Price':
                 return (
-                    <Company name={company.Name} info={company.LastPrice} infoName={'Last Price'}>
+                    <Company name={company.Name} info={company.LastPrice} infoName={company.selectedOption}>
                     </Company>
                 );
                 break;
-                case 'Change':
+                case 'Change of the Price':
                 return (
-                    <Company name={company.Name} info={company.Change} infoName={'Change'}>
+                    <Company name={company.Name} info={company.Change} infoName={company.selectedOption}>
                     </Company>
                 );
                 break;
             }
-
 
         });
 
