@@ -2,6 +2,10 @@ var React = require('react'),
     injectTapEventPlugin = require("react-tap-event-plugin"), // This dependency is temporary and will go away once react v1.0 is released
     mui = require('material-ui'),
     ThemeManager = new mui.Styles.ThemeManager(),
+    Card = mui.Card,
+    CardHeader = mui.CardHeader,
+    CardText = mui.CardText,
+    Avatar = mui.Avatar,
     TextField = mui.TextField;
 
 var Company = React.createClass({
@@ -14,14 +18,21 @@ var Company = React.createClass({
         };
     },
     render: function() {
-        return (
-            <div className="company">
-                <h3 className="CompanySymbol">
-                    {this.props.name}
-                </h3>
-                <p>{this.props.info}</p>
-            </div>
-        );
+        if(this.props.name != undefined) {
+            return (
+                <Card>
+                    <div className="company">
+                        <p>Company name: <span className="infoLabel">{this.props.name}</span></p>
+                        <p>{this.props.infoName}: <span className="infoLabel">{this.props.info}</span></p>
+                    </div>
+                </Card>
+            );
+        }else{
+            return (
+                <div style={{display: 'none'}}></div>
+            );
+        }
+
     }
 });
 module.exports = Company;

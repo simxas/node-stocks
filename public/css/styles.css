@@ -8,3 +8,11 @@
 .result {
     margin: 2%;
 }
+.company {
+    margin: 2%;
+    display: inline-block;
+
+}
+.infoLabel {
+    font-weight: bold;
+}

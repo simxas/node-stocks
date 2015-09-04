@@ -36,19 +36,19 @@ var CompaniesList = React.createClass({
             switch(selected) {
                 case 'Symbol':
                 return (
-                    <Company name={company.Name} info={company.Symbol}>
+                    <Company name={company.Name} info={company.Symbol} infoName={'Symbol'}>
                     </Company>
                 );
                 break;
                 case 'LastPrice':
                 return (
-                    <Company name={company.Name} info={company.LastPrice}>
+                    <Company name={company.Name} info={company.LastPrice} infoName={'Last Price'}>
                     </Company>
                 );
                 break;
                 case 'Change':
                 return (
-                    <Company name={company.Name} info={company.Change}>
+                    <Company name={company.Name} info={company.Change} infoName={'Change'}>
                     </Company>
                 );
                 break;
