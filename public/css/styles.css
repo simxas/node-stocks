@@ -1,0 +1,10 @@
+.selectBox {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.searchInput {
+    width: 250px;
+}
+.result {
+    margin: 2%;
+}
