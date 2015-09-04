@@ -19,6 +19,7 @@ var Company = React.createClass({
                 <h3 className="CompanySymbol">
                     {this.props.name}
                 </h3>
+                <p>{this.props.info}</p>
             </div>
         );
     }
