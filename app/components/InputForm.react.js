@@ -39,7 +39,6 @@ var InputForm = React.createClass({
             <select className="selectBox" name="optionsList" ref="selectedOption">
                 <option value="disabled selected">Type of information to show</option>
                 <option value="Symbol">Company Symbol</option>
-                <option value="Name">Company Name</option>
                 <option value="LastPrice">Last Price</option>
                 <option value="Change">Change of the Price</option>
             </select>

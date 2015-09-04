@@ -26,9 +26,6 @@ var CompaniesList = React.createClass({
                 case 'Symbol':
                 selected = company;
                 break;
-                case 'Name':
-                selected = company;
-                break;
                 case 'LastPrice':
                 selected = company;
                 break;
@@ -40,12 +37,6 @@ var CompaniesList = React.createClass({
                 case 'Symbol':
                 return (
                     <Company name={company.Name} info={company.Symbol}>
-                    </Company>
-                );
-                break;
-                case 'Name':
-                return (
-                    <Company name={company.Name}>
                     </Company>
                 );
                 break;
