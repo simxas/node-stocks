@@ -1,7 +1,9 @@
 var React = require('react'),
     injectTapEventPlugin = require("react-tap-event-plugin"), // This dependency is temporary and will go away once react v1.0 is released
     mui = require('material-ui'),
+    $ = require('jquery'),
     FlatButton = mui.FlatButton,
+    RaisedButton = mui.RaisedButton,
     ThemeManager = new mui.Styles.ThemeManager(),
     TextField = mui.TextField;
 
@@ -12,15 +14,17 @@ injectTapEventPlugin();
 var InputForm = React.createClass({
     handleSubmit: function(e) {
         e.preventDefault();
-        var symbol = React.findDOMNode(this.refs.symbol).value.trim();
-        //adding choice at the beginning of array
-        var selectedOption = React.findDOMNode(this.refs.selectedOption).value.trim();
+        var symbol = this.refs.symbol.getValue();
+        // var symbol = React.findDOMNode(this.refs.symbol).value.trim();
+
         if (!symbol) {
         return;
         }
         // TODO: send request to the server
-        this.props.onSymbolSubmit(symbol, selectedOption);
-        React.findDOMNode(this.refs.symbol).value = '';
+        this.props.onSymbolSubmit(symbol);
+        // React.findDOMNode(this.refs.symbol).value = '';
+        this.refs.symbol.clearValue();
+
         return;
     },
     childContextTypes: {
@@ -35,15 +39,8 @@ var InputForm = React.createClass({
     render: function() {
         return (
         <form className="inputForm" onSubmit={this.handleSubmit}>
-
-            <select className="selectBox" name="optionsList" ref="selectedOption">
-                <option value="disabled selected">Type of information to show</option>
-                <option value="Company Symbol">Company Symbol</option>
-                <option value="Last Price">Last Price</option>
-                <option value="Change of the Price">Change of the Price</option>
-            </select>
-            <input className="searchInput" type="text" placeholder="Enter a company name, ex: Netflix" ref="symbol" />
-            <FlatButton type="submit" label="SEARCH" />
+            <TextField className="textinput" floatingLabelText="Enter a company name, ex: Netflix" ref="symbol" />
+            <RaisedButton type="submit" label="SEARCH" />
         </form>
         );
     }

@@ -2,20 +2,32 @@
     margin-left: 5%;
     margin-right: 5%;
 }
-.searchInput {
-    width: 250px;
+.textinput {
+    margin-left: 5%;
+    margin-right: 10px;
+}
+.numberinput {
+    margin: 30px 10px;
+    width: 70%;
 }
 .result {
     margin: 2%;
 }
 .company {
     margin: 2%;
-    display: inline-block;
+    /*display: inline-block;*/
 
 }
 .infoLabel {
     font-weight: bold;
 }
 .chart {
+    margin: 2%;
+}
+.chartOptions {
+    margin: 0 5%;
+}
+.containers {
     margin-top: 20px;
+    margin-bottom: 20px;
 }

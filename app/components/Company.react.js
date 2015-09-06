@@ -1,4 +1,5 @@
 var React = require('react'),
+    Chart = require("./Chart.react"),
     injectTapEventPlugin = require("react-tap-event-plugin"), // This dependency is temporary and will go away once react v1.0 is released
     mui = require('material-ui'),
     ThemeManager = new mui.Styles.ThemeManager(),
@@ -19,11 +20,14 @@ var Company = React.createClass({
     },
     render: function() {
         return (
-            <Card>
+            <Card className="company">
                 <div className="company">
                     <p>Company name: <span className="infoLabel">{this.props.name}</span></p>
-                    <p>{this.props.infoName}: <span className="infoLabel">{this.props.info}</span></p>
+                    <p>Company symbol: <span className="infoLabel">{this.props.symbol}</span></p>
+                    <p>Last Price: <span className="infoLabel">{this.props.lastPrice}</span></p>
+                    <p>Change of price: <span className="infoLabel">{this.props.change}</span></p>
                 </div>
+                <Chart symbol={this.props.symbol} />
             </Card>
         );
     }

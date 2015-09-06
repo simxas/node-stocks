@@ -6,7 +6,11 @@ var React = require('react'),
     Card = mui.Card,
     CardHeader = mui.CardHeader,
     CardText = mui.CardText,
+    Paper = mui.Paper,
     Avatar = mui.Avatar,
+    FlatButton = mui.FlatButton,
+    RaisedButton = mui.RaisedButton,
+    Slider = mui.Slider,
     DropDownMenu = mui.DropDownMenu,
     TextField = mui.TextField;
 
@@ -14,6 +18,12 @@ ThemeManager.setTheme(ThemeManager.types.LIGHT);
 injectTapEventPlugin();
 
 var Chart = React.createClass({
+    handleClick: function(i) {
+        var daysForChart = this.refs.daysForChart.getValue();
+        // console.log('You clicked: ' + i + 'value of slider is: '+daysForChart);
+        window.Markit.InteractiveChartApi(this.props.symbol, daysForChart);
+    },
+
     childContextTypes: {
         muiTheme: React.PropTypes.object
     },
@@ -24,10 +34,14 @@ var Chart = React.createClass({
         };
     },
     render: function() {
+        var id = window.container = this.props.symbol;
         return (
             <Card className="chart">
-                <div id="content" style={{width:100+'%', height:400+'px'}}>
-                <p>CHARTAS</p>
+                <div className="chartOptions">
+                    <TextField className="numberinput" hintText="Enter number of days to show history of stocks on chart" multiLine={true} ref="daysForChart" />
+                    <RaisedButton label="Show chart" onClick={this.handleClick.bind(this, this.props.symbol)} />
+                </div>
+                <div id={id} className="containers">
                 </div>
             </Card>
         );
