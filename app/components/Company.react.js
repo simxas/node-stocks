@@ -24,7 +24,7 @@ var Company = React.createClass({
                 <div className="company">
                     <p>Company name: <span className="infoLabel">{this.props.name}</span></p>
                     <p>Company symbol: <span className="infoLabel">{this.props.symbol}</span></p>
-                    <p>Last Price: <span className="infoLabel">{this.props.lastPrice}</span></p>
+                    <p>Last price: <span className="infoLabel">{this.props.lastPrice}</span></p>
                     <p>Change of price: <span className="infoLabel">{this.props.change}</span></p>
                 </div>
                 <Chart symbol={this.props.symbol} />
