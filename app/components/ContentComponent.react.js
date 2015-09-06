@@ -1,5 +1,6 @@
 var React = require('react'),
     CompaniesList = require("./CompaniesList.react"),
+    Chart = require("./Chart.react"),
     InputForm = require("./InputForm.react"),
     injectTapEventPlugin = require("react-tap-event-plugin"), // This dependency is temporary and will go away once react v1.0 is released
     $ = require('jquery'),
@@ -30,8 +31,6 @@ var ContentComponent = React.createClass({
                     $.getJSON('Api/v2/Quote/json', {symbol: data[key].Symbol}, function (quote) {
                         quote.selectedOption = selectedOption;
                         arrayOfData.push(quote);
-                        // arrayOfData.unshift(selectedOption);
-                        // console.log(arrayOfData);
                         that.setState({data: arrayOfData});
                     });
                 }
@@ -62,15 +61,15 @@ var ContentComponent = React.createClass({
                 subtitle="Get all the information related to the stocks."
                 avatar="http://lorempixel.com/100/100/technics/10/cc"/>
 
-                <Card>
                     <p></p>
                     <InputForm onSymbolSubmit={this.handleSymbolSubmit} />
                     <p></p>
-                </Card>
+
                 <Card>
                     <div className="result">
                         <h2>Information:</h2>
                         <CompaniesList data={this.state.data} />
+                        <Chart />
                     </div>
                 </Card>
             </Card>
